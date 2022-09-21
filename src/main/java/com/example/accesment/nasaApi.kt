@@ -6,11 +6,11 @@ import retrofit2.http.Path
 
 interface nasaApi {
 
-    @GET("/planetary/apod")
+    @GET("/planetary/apod?=api_key")
     suspend fun getNasa(): Response<List<NasaApiX>>
 
-//    @GET("/planetary/apod?api_key={word}")
-//    suspend fun searchNasa(
-//        @Path("word") word: String
-//    ): List<NasaApiX>
+    @GET("/planetary/apod?api_key={word}")
+    suspend fun searchNasa(
+        @Path("word") word: String
+    ): List<NasaApiX>
 }
